@@ -69,3 +69,22 @@ async function bubbleSort(num = 40) {
         }
     }
 }
+
+//Insertion Sort
+async function insertionSort(num = 40) {
+    const bars = document.getElementsByClassName("bar");
+    for(let i = 0; i<num; i++){
+        let temp = arr[i];
+        let j = i-1;
+        for(; j>=0; j--){
+            if(arr[j] > temp){
+                arr[j+1] = arr[j];
+                bars[j+1].style.height = `${arr[j+1]}px`;
+            }else{
+                break;
+            }
+        }
+        arr[j+1] = temp;
+        bars[j+1].style.height = `${arr[j+1]}px`;
+    }
+}
