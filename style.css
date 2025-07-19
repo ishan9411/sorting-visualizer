@@ -39,6 +39,6 @@ button:hover{
     background-color:#007bff;
     margin: 0px 1px;
     width: 20px; 
-    transition: height 0.5s;
+    /* transition: height 0.5s; */
 }
 
