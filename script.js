@@ -85,7 +85,7 @@ async function insertionSort(num = 40) {
                 bars[j+1].style.height = `${arr[j+1]}px`;
                 bars[j].style.backgroundColor = "green";
                 bars[j+1].style.backgroundColor = "#007bff";
-                if(i == 1){
+                if(j == 0){
                     bars[0].style.backgroundColor = "#007bff";
                 }
             }else{
