@@ -47,3 +47,25 @@ async function selectionSort(num = 40){
         bars[minIndex].style.backgroundColor = "#007bff";
     }
 }
+
+//Bubble Sort
+async function bubbleSort(num = 40) {
+    const bars = document.getElementsByClassName("bar");
+    for(let i = 1; i<num; i++){
+        for(let j = 0; j<num-i; j++){
+            bars[j].style.backgroundColor = "red";
+            bars[j+1].style.backgroundColor = "red";
+            await sleep(20);
+            if(arr[j] > arr[j+1]){
+                bars[j].style.backgroundColor = "green";
+                await sleep(20);
+                [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+                bars[j].style.height = `${arr[j]}px`;
+                bars[j+1].style.height = `${arr[j+1]}px`;
+            }
+            await sleep(20);
+            bars[j].style.backgroundColor = "#007bff";
+            bars[j+1].style.backgroundColor = "#007bff";
+        }
+    }
+}
