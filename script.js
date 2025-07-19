@@ -73,14 +73,23 @@ async function bubbleSort(num = 40) {
 //Insertion Sort
 async function insertionSort(num = 40) {
     const bars = document.getElementsByClassName("bar");
-    for(let i = 0; i<num; i++){
+    for(let i = 1; i<num; i++){
         let temp = arr[i];
         let j = i-1;
         for(; j>=0; j--){
             if(arr[j] > temp){
+                await sleep(100);
                 arr[j+1] = arr[j];
+                arr[j] = temp;
+                bars[j].style.height = `${arr[j]}px`;
                 bars[j+1].style.height = `${arr[j+1]}px`;
+                bars[j].style.backgroundColor = "green";
+                bars[j+1].style.backgroundColor = "#007bff";
+                if(i == 1){
+                    bars[0].style.backgroundColor = "#007bff";
+                }
             }else{
+                bars[j+1].style.backgroundColor = "#007bff";
                 break;
             }
         }
