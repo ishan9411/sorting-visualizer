@@ -11,7 +11,10 @@
         <h1>Sorting Algorithm Visualizer</h1>
 
     <div id="controls">
-        <input type="range" min="10" max="100" value="40" id="sizeSlider" onclick="updateArray()">
+        <label for="sizeSlider">Array Size :<span id="sizeValue">40</span></label>
+        <input type="range" min="10" max="100" value="40" id="sizeSlider" oninput="updateArray(this.value)">
+        <label for="sizeSlider">Speed :<span id="speedValue">2x</span></label>
+        <input type="range" min="10" max="100" value="50" id="speedSlider" oninput="updateSpeed(this.value)">
         <button onclick="generateArray(arrSize)">Generate Random Array</button>
         <button onclick="bubbleSort(arrSize)">Bubble Sort</button>
         <button onclick="selectionSort(arrSize)">Selection Sort</button>
