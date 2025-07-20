@@ -6,4 +6,4 @@
   <li>Selection Sort</li>
   <li>Inserton Sort</li>
 </ul>
-<p>To see it working visit sorting-visualizer-pgydufrur-ishan9411s-projects.vercel.app </p>
+To see it working visit: https://sorting-visualizer-pgydufrur-ishan9411s-projects.vercel.app/
