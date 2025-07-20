@@ -12,6 +12,7 @@ function updateArray(size){
 
 function updateSpeed(speed){
     waitingTime = 101 - speed;
+    document.getElementById("speedValue").innerText = `${speed}x`;
 }
 
 function generateArray(num = 40){
