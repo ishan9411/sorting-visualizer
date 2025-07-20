@@ -1,5 +1,12 @@
 const container = document.getElementById("bar-container");
 let arr = [];
+let arrSize = 40;
+
+function updateArray(){
+    const slider = document.getElementById("sizeSlider");
+    arrSize = slider.value;
+    generateArray(arrSize);
+}
 
 function generateArray(num = 40){
     container.innerHTML = '';
