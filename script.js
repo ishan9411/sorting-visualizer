@@ -20,6 +20,7 @@ function generateArray(num = 40){
         bar.classList.add("bar");
 
         bar.style.height = `${value}px`;
+        bar.style.width = `${Math.floor(800 / arrSize)}px`;
         
         container.appendChild(bar);
     }
