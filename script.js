@@ -1,12 +1,17 @@
 const container = document.getElementById("bar-container");
 let arr = [];
 let arrSize = 40;
+let waitingTime = 50;
 
 function updateArray(size){
     arrSize = parseInt(size);
     const slider = document.getElementById("sizeValue");
     slider.innerText = arrSize;
     generateArray(arrSize);
+}
+
+function updateSpeed(speed){
+    waitingTime = 101 - speed;
 }
 
 function generateArray(num = 40){
@@ -39,7 +44,7 @@ async function selectionSort(num = 40){
         bars[minIndex].style.backgroundColor = "green";
         for(let j = i+1; j<num; j++){
             bars[j].style.backgroundColor = "red";
-            await sleep(20);
+            await sleep(waitingTime);
             if(arr[j] < arr[minIndex]){
                 bars[minIndex].style.backgroundColor = "#007bff";
                 minIndex = j;
@@ -49,10 +54,10 @@ async function selectionSort(num = 40){
             }
         }
         [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
-        await sleep(50);
+        await sleep(waitingTime);
         bars[i].style.height = `${arr[i]}px`;
         bars[minIndex].style.height = `${arr[minIndex]}px`;
-        await sleep(30);
+        await sleep(waitingTime);
         bars[minIndex].style.backgroundColor = "#007bff";
     }
 }
@@ -64,15 +69,15 @@ async function bubbleSort(num = 40) {
         for(let j = 0; j<num-i; j++){
             bars[j].style.backgroundColor = "red";
             bars[j+1].style.backgroundColor = "red";
-            await sleep(20);
+            await sleep(waitingTime);
             if(arr[j] > arr[j+1]){
                 bars[j].style.backgroundColor = "green";
-                await sleep(20);
+                await sleep(waitingTime);
                 [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
                 bars[j].style.height = `${arr[j]}px`;
                 bars[j+1].style.height = `${arr[j+1]}px`;
             }
-            await sleep(20);
+            await sleep(waitingTime);
             bars[j].style.backgroundColor = "#007bff";
             bars[j+1].style.backgroundColor = "#007bff";
         }
@@ -87,7 +92,7 @@ async function insertionSort(num = 40) {
         let j = i-1;
         for(; j>=0; j--){
             if(arr[j] > temp){
-                await sleep(100);
+                await sleep(waitingTime);
                 arr[j+1] = arr[j];
                 arr[j] = temp;
                 bars[j].style.height = `${arr[j]}px`;
@@ -101,6 +106,7 @@ async function insertionSort(num = 40) {
                 bars[j+1].style.backgroundColor = "#007bff";
                 break;
             }
+            await sleep(waitingTime);
         }
         arr[j+1] = temp;
         bars[j+1].style.height = `${arr[j+1]}px`;
