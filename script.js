@@ -3,6 +3,18 @@ let arr = [];
 let arrSize = 40;
 let waitingTime = 50;
 
+function disableControls(){
+    document.querySelectorAll("button").forEach(btn => btn.disabled = true);
+    document.getElementById("sizeSlider").disabled = true;
+    document.getElementById("speedSlider").disabled = true;
+}
+
+function enableControls(){
+    document.querySelectorAll("button").forEach(btn => btn.disabled = false);
+    document.getElementById("sizeSlider").disabled = false;
+    document.getElementById("speedSlider").disabled = false;
+}
+
 function updateArray(size){
     arrSize = parseInt(size);
     const slider = document.getElementById("sizeValue");
@@ -39,6 +51,7 @@ function sleep(ms) {
 
 //Selection Sort
 async function selectionSort(num = 40){
+    disableControls();
     const bars = document.getElementsByClassName("bar");
     for(let i = 0; i<num-1; i++){
         let minIndex = i;
@@ -61,10 +74,12 @@ async function selectionSort(num = 40){
         await sleep(waitingTime);
         bars[minIndex].style.backgroundColor = "#007bff";
     }
+    enableControls();
 }
 
 //Bubble Sort
 async function bubbleSort(num = 40) {
+    disableControls();
     const bars = document.getElementsByClassName("bar");
     for(let i = 1; i<num; i++){
         for(let j = 0; j<num-i; j++){
@@ -83,10 +98,12 @@ async function bubbleSort(num = 40) {
             bars[j+1].style.backgroundColor = "#007bff";
         }
     }
+    enableControls();
 }
 
 //Insertion Sort
 async function insertionSort(num = 40) {
+    disableControls();
     const bars = document.getElementsByClassName("bar");
     for(let i = 1; i<num; i++){
         let temp = arr[i];
@@ -112,4 +129,5 @@ async function insertionSort(num = 40) {
         arr[j+1] = temp;
         bars[j+1].style.height = `${arr[j+1]}px`;
     }
+    enableControls();
 }
