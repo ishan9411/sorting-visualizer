@@ -6,4 +6,4 @@
   <li>Selection Sort</li>
   <li>Inserton Sort</li>
 </ul>
-To see it working visit: https://sorting-visualizer-ishan9411s-projects.vercel.app/
+To see it working visit: https://sorting-visualizer-two-eta.vercel.app/
