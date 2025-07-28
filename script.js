@@ -3,12 +3,22 @@ let arr = [];
 let arrSize = 40;
 let waitingTime = 50;
 
+let stop = false;
+
+function stopSorting(){
+    stop = true;
+    enableControls();
+}
+
 function disableControls(){
-    document.querySelectorAll("button").forEach(btn => btn.disabled = true);
+    document.querySelectorAll("button").forEach(btn => {
+        if(btn.innerText != "Stop Sorting"){
+            btn.disabled = true
+        }
+    });
     document.getElementById("sizeSlider").disabled = true;
     document.getElementById("speedSlider").disabled = true;
 }
-
 function enableControls(){
     document.querySelectorAll("button").forEach(btn => btn.disabled = false);
     document.getElementById("sizeSlider").disabled = false;
@@ -51,12 +61,15 @@ function sleep(ms) {
 
 //Selection Sort
 async function selectionSort(num = 40){
+    stop = false;
     disableControls();
     const bars = document.getElementsByClassName("bar");
     for(let i = 0; i<num-1; i++){
+        if(stop) break;
         let minIndex = i;
         bars[minIndex].style.backgroundColor = "green";
         for(let j = i+1; j<num; j++){
+            if(stop) break;
             bars[j].style.backgroundColor = "red";
             await sleep(waitingTime);
             if(arr[j] < arr[minIndex]){
@@ -79,10 +92,13 @@ async function selectionSort(num = 40){
 
 //Bubble Sort
 async function bubbleSort(num = 40) {
+    stop = false;
     disableControls();
     const bars = document.getElementsByClassName("bar");
     for(let i = 1; i<num; i++){
+        if(stop) break;
         for(let j = 0; j<num-i; j++){
+            if(stop) break;
             bars[j].style.backgroundColor = "red";
             bars[j+1].style.backgroundColor = "red";
             await sleep(waitingTime);
@@ -103,12 +119,15 @@ async function bubbleSort(num = 40) {
 
 //Insertion Sort
 async function insertionSort(num = 40) {
+    stop = false;
     disableControls();
     const bars = document.getElementsByClassName("bar");
     for(let i = 1; i<num; i++){
+        if(stop) break;
         let temp = arr[i];
         let j = i-1;
         for(; j>=0; j--){
+            if(stop) break;
             if(arr[j] > temp){
                 await sleep(waitingTime);
                 arr[j+1] = arr[j];
