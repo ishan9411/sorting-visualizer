@@ -10,6 +10,18 @@ function stopSorting(){
     enableControls();
 }
 
+async function startSorting(){
+    const algo = document.getElementById("algoSelect").value;
+
+    if(algo === "bubble"){
+        await bubbleSort(arrSize);
+    }else if(algo === "selection"){
+        await selectionSort(arrSize);
+    }else if(algo === "insertion"){
+        await insertionSort(arrSize);
+    }
+}
+
 function disableControls(){
     document.querySelectorAll("button").forEach(btn => {
         if(btn.innerText != "Stop Sorting"){
