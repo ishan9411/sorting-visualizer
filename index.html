@@ -15,15 +15,15 @@
         <input type="range" min="10" max="100" value="40" id="sizeSlider" oninput="updateArray(this.value)">
         <label for="speedSlider">Speed :<span id="speedValue">50x</span></label>
         <input type="range" min="1" max="100" value="50" id="speedSlider" oninput="updateSpeed(this.value)">
-        <!-- <button onclick="generateArray(arrSize)" id="dis">Generate Random Array</button>
-        <button onclick="bubbleSort(arrSize)" id="dis">Bubble Sort</button>
+        <button onclick="generateArray(arrSize)" id="dis">Generate Random Array</button>
+        <!-- <button onclick="bubbleSort(arrSize)" id="dis">Bubble Sort</button>
         <button onclick="selectionSort(arrSize)" id="dis">Selection Sort</button>
         <button onclick="insertionSort(arrSize)" id="dis">Insertion Sort</button> -->
         <label for="algoSelect">Choose Algorithm :</label>
         <select id="algoSelect">
             <option value="bubble">Bubble Sort</option>
-            <option value="Selection">Selection Sort</option>
-            <option value="Insertion">Insertion Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
         </select>
         <button onclick="startSorting()">Start Sorting</button>
         <button onclick="stopSorting()">Stop Sorting</button>
